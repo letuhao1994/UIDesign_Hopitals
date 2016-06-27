@@ -18,7 +18,7 @@
 
     ga('send', {
         hitType: 'event',
-        eventCategory: 'Search',
+        eventCategory: 'Search Key',
         eventAction: 'fill',
         eventLabel: txtSearchValue
     });
@@ -42,10 +42,11 @@ function Search() {
         eventLabel: 'Seach'
     });
 
+    var searchTerm = "Type: " + searchTypeValue + "||Name:" + txtSearchValue;
     ga('send', {
         hitType: 'event',
-        eventCategory: 'Search',
+        eventCategory: 'Search Key',
         eventAction: 'fill',
-        eventLabel: txtSearchValue
+        eventLabel: searchTerm
     });
 }
