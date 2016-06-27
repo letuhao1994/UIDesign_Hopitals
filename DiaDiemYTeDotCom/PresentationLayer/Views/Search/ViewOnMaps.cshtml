@@ -10,9 +10,15 @@
             src="@Model.UrlSource"
             allowfullscreen></iframe>
 
-    <div id="divLocationInformation" style="height:300px; width:375px;
-            overflow-y: auto; float:left; position:relative; margin-left:-5px;">
-    </div> 
+    @{
+        if (Model.LocationDetails != null)
+        {
+            <div id="divLocationInformation" style="height:560px; width:375px;
+                 overflow-y: auto; float:left; position:relative; margin-left:-5px;">
+                <img src="@Model.LocationDetails.ImageSource" alt="Location Image" style="width:375px; height:228px;">
+            </div>
+        }
+    }   
 
     <form class="form-horizontal" role="form" style="position: absolute">
         <div class="col-md-5">

@@ -103,6 +103,9 @@ namespace PresentationLayer.Controllers
                         + "&q=" + txtSearch
                         + "&language=vi";
                     model.SearchValue = txtSearch;
+
+                    model.LocationDetails = new LocationDetailsViewModel();
+
                 }
                 else
                 {

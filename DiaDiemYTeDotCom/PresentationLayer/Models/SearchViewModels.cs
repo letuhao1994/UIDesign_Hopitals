@@ -24,5 +24,11 @@ namespace PresentationLayer.Models
         public string Id { get; set; }
         public string UrlSource { get; set; }
         public string SearchValue { get; set; }
+        public LocationDetailsViewModel LocationDetails { get; set; }
+    }
+
+    public class LocationDetailsViewModel
+    {
+        public string ImageSource { get; set; }
     }
 }
