@@ -1,0 +1,43 @@
+﻿@model PresentationLayer.Models.ViewOnMapsViewModel
+@{
+    ViewBag.Title = "Xem trên bản đồ";
+}
+
+<div style="margin: 5px">
+    <iframe style="overflow: hidden; height: 90%; width: 90%; position: absolute"
+            height="90%"
+            width="90%"
+            src="@Model.UrlSource"
+            allowfullscreen></iframe>
+
+    <div id="divLocationInformation" style="height:300px; width:375px;
+            overflow-y: auto; float:left; position:relative; margin-left:-5px;">
+    </div> 
+
+    <form class="form-horizontal" role="form" style="position: absolute">
+        <div class="col-md-5">
+            <div class="input-group">
+                <span class="input-group-btn">
+                    <button type="button" class="btn btn-primary">
+                        <span>Menu</span>
+                    </button>
+                    <button type="button" class="btn btn-danger">V</button>
+                </span>
+                <input id="txtSearchAutoComplete" onFocus="geolocate()" type="text" class="form-control"
+                       name="txtSearch" placeholder="Nhập tên địa điểm hoặc địa chỉ" value="@Model.SearchValue"/>
+                <span class="input-group-btn">
+                    <button type="button" class="btn btn-default" name="btnSearch" onclick="SearchOnMaps()">
+                        <span class="glyphicon glyphicon-search"></span>
+                    </button>
+                    <button type="button" class="btn btn-default" name="btnDirection">D</button>
+                    <button type="button" class="btn btn-default" name="btnAdvancedSearch">A</button>
+                </span>
+            </div>
+        </div>
+    </form>
+
+</div>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCXu7DK2qiuIyb1tmiHUNemOwY3DTfTP18&libraries=places&callback=initAutocomplete&language=vi" async defer></script>
+<script src="~/Scripts/Customs/SearchScripts.js"></script>
+<script src="~/Scripts/Customs/GoogleAutoComplete.js"></script>

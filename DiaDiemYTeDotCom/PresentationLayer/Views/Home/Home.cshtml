@@ -1,0 +1,42 @@
+﻿@model IEnumerable<PresentationLayer.Models.HomepageViewModel>
+
+@{
+    ViewBag.Title = "Trang chủ";
+}
+
+<h2>Danh sách 10 bệnh viện nỗi bật tại Tp. Hồ Chí Minh</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Specialist)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Rating)
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                <li>
+                    @{
+                        string url = "../Search/ViewOnMaps?id=" + item.Id;
+                        <a href="@url" onclick="GoToMapsFromLocationName()"> @Html.DisplayFor(modelItem => item.Name)</a>
+                    }                   
+                </li>           
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Specialist)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Rating)
+            </td>
+        </tr>
+    }
+
+</table>

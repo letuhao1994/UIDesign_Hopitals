@@ -1,0 +1,68 @@
+﻿@using System.Web.UI.WebControls
+@model IEnumerable<PresentationLayer.Models.SearchLocationViewModel>
+
+@{
+    ViewBag.Title = "Tìm kiếm địa điểm";
+}
+
+<div style="margin: 5px">
+    <div id="divControls"> 
+
+        @using (Html.BeginForm("Search", "Search", 
+            new {ViewBag.ReturnUrl, @class= "navbar - form navbar - left" }))
+        {
+            var listItems = new List<ListItem>
+            {
+                new ListItem {Text = "Tên", Value = "Name"},
+                new ListItem {Text = "Chuyên khoa", Value = "Specialist"},
+                new ListItem {Text = "Địa chỉ", Value = "Address"}
+            };
+
+            @Html.DropDownList("ddlSearchOptions", new SelectList(listItems, "Value", "Text"))
+            <input type="text" name="txtSearch" placeholder="Nhập tên, địa chỉ hoặc chuyên khoa"/>
+            <input Name="btnSearch" type="submit" value="Tìm">
+        }
+    </div>
+
+    <div id="divDisplayItems">
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Address)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Specialists)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Rating)
+                </th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        <li>
+                            @{
+                                string url = "../Search/ViewOnMaps?id=" + item.Id;
+                                <a href="@url" onclick="GoToMapsFromLocationName()"> @Html.DisplayFor(modelItem => item.Name)</a>
+                            }
+                        </li>
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Address)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Specialists)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Rating)
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>
