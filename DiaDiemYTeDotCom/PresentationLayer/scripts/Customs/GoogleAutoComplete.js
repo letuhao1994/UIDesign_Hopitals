@@ -25,6 +25,7 @@ function initAutocomplete() {
     // When the user selects an address from the dropdown, populate the address
     // fields in the form.
     //autocomplete.addListener('place_changed', fillInAddress);
+    autocomplete.addListener('place_changed', fillPlaceId);
 }
 
 function fillInAddress() {
@@ -46,6 +47,18 @@ function fillInAddress() {
             var val = place.address_components[i][componentForm[addressType]];
             document.getElementById(addressType).value = val;
         }
+    }
+}
+
+function fillPlaceId() {
+    var place = autocomplete.getPlace();
+    if (!place.geometry) {
+        return;
+    }
+
+    var placeId = document.getElementById('txtSearchPlaceId');
+    if (placeId != null) {
+        placeId.value = place.place_id;
     }
 }
 
