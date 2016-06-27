@@ -15,16 +15,20 @@ namespace PresentationLayer.Controllers
             return View();
         }
 
-        public ActionResult Search(string txtSearch, FormCollection form)
+        public ActionResult Search(string txtSearch, string ddlSearchOptions)
         {
-            List<SearchLocationViewModel> items = new List<SearchLocationViewModel>();
+            var model = new SearchViewModel
+            {
+                SearchValue = txtSearch,
+                Locations = new List<SearchLocationViewModel>()
+            };
+
             string path = AppDomain.CurrentDomain.BaseDirectory + "bin\\Hopitals.txt";
             List<LocationDto> locations = LocationBlo.GetLocations(path);
 
             if(!string.IsNullOrEmpty(txtSearch))
             {
-                string strddlSearchOptionsValue = Request.Form["ddlSearchOptions"];
-                switch (strddlSearchOptionsValue)
+                switch (ddlSearchOptions)
                 {
                     case "Name":
                         locations = LocationBlo.Search(locations, SearchOption.Name, txtSearch);
@@ -68,14 +72,14 @@ namespace PresentationLayer.Controllers
                         slvm.Specialists = location.Specialists[0];
                     }
 
-                    items.Add(slvm);
+                    model.Locations.Add(slvm);
                 }
             }            
 
-            return View(items);
+            return View(model);
         }
 
-        public ActionResult ViewOnMaps(string id, string txtSearch)
+        public ActionResult ViewOnMaps(string id, string txtSearch, string txtPlaceId)
         {
             ViewOnMapsViewModel model = new ViewOnMapsViewModel();
 
@@ -104,8 +108,10 @@ namespace PresentationLayer.Controllers
                         + "&language=vi";
                     model.SearchValue = txtSearch;
 
-                    model.LocationDetails = new LocationDetailsViewModel();
-
+                    if (!string.IsNullOrEmpty(txtPlaceId))
+                    {
+                        model.LocationDetails = new LocationDetailsViewModel();
+                    }                    
                 }
                 else
                 {

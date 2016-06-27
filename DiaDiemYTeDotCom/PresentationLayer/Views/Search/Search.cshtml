@@ -1,28 +1,32 @@
-﻿@using System.Web.UI.WebControls
-@model IEnumerable<PresentationLayer.Models.SearchLocationViewModel>
+﻿@model PresentationLayer.Models.SearchViewModel
 
 @{
     ViewBag.Title = "Tìm kiếm địa điểm";
 }
 
 <div style="margin: 5px">
-    <div id="divControls"> 
 
-        @using (Html.BeginForm("Search", "Search", 
-            new {ViewBag.ReturnUrl, @class= "navbar - form navbar - left" }))
-        {
-            var listItems = new List<ListItem>
-            {
-                new ListItem {Text = "Tên", Value = "Name"},
-                new ListItem {Text = "Chuyên khoa", Value = "Specialist"},
-                new ListItem {Text = "Địa chỉ", Value = "Address"}
-            };
-
-            @Html.DropDownList("ddlSearchOptions", new SelectList(listItems, "Value", "Text"))
-            <input type="text" name="txtSearch" placeholder="Nhập tên, địa chỉ hoặc chuyên khoa"/>
-            <input Name="btnSearch" type="submit" value="Tìm">
-        }
-    </div>
+    <form class="form-horizontal" role="form">
+        <div class="col-md-7">
+            <div class="input-group">
+                <div class="col-md-5">
+                    <select id="ddlSearchOptions" name="ddlSearchOptions" class="form-control">
+                        <option value="Name">Tên địa điểm</option>
+                        <option value="Address">Địa chỉ</option>
+                        <option value="Specialist">Chuyên khoa</option>
+                    </select>
+                </div>
+                <input id="txtSearchId" type="text" class="form-control"
+                       name="txtSearch" placeholder="Nhập từ khóa cần tìm" value="@Model.SearchValue"/>
+                <span class="input-group-btn">
+                    <button type="button" class="btn btn-default" name="btnSearch" onclick="Search()">                       
+                        <span class="glyphicon glyphicon-search"></span>
+                        Tìm
+                    </button>
+                </span>            
+            </div>
+        </div>
+    </form>
 
     <div id="divDisplayItems">
         <table class="table">
@@ -41,7 +45,7 @@
                 </th>
             </tr>
 
-            @foreach (var item in Model)
+            @foreach (var item in Model.Locations)
             {
                 <tr>
                     <td>
@@ -66,3 +70,5 @@
         </table>
     </div>
 </div>
+
+<script src="~/Scripts/Customs/SearchScripts.js"></script>

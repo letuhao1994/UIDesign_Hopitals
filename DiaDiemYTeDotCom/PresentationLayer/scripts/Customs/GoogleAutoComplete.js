@@ -57,7 +57,7 @@ function fillPlaceId() {
     }
 
     var placeId = document.getElementById('txtSearchPlaceId');
-    if (placeId != null) {
+    if (placeId != null) {      
         placeId.value = place.place_id;
     }
 }
