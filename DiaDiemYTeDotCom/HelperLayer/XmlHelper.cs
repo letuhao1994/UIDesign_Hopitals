@@ -73,5 +73,17 @@ namespace HelperLayer
 
             return result;
         }
+
+        public static List<XmlElement> GetElementsWithAttribute(XmlElement data, string elementName, 
+            string attributeName, string value)
+        {
+            List<XmlElement> result = new List<XmlElement>();
+
+            string xPath = "descendant::" + elementName + "[@" + attributeName + "='" + value + "']";
+            var temp = data.SelectNodes(xPath);
+            if (temp != null) result = temp.Cast<XmlElement>().ToList();
+
+            return result;
+        }
     }
 }

@@ -1,42 +1,463 @@
-﻿@model IEnumerable<PresentationLayer.Models.HomepageViewModel>
+﻿@model PresentationLayer.Models.HomeViewModel
 
 @{
     ViewBag.Title = "Trang chủ";
 }
 
-<h2>Danh sách 10 bệnh viện nỗi bật tại Tp. Hồ Chí Minh</h2>
+<div class="container">
+    <h2>Danh sách các bệnh viện nổi bật</h2>
+    <ul class="nav nav-tabs">
+        @{
+            switch (Model.TabValue)
+            {
+                case "rating":
+                    <li id="liHomeHome1" class="active"><a href="#" onclick="GoTopHopistals()">Theo đánh giá</a></li>
+                    <li id="liHomeHome2"><a href="#" onclick="GoTopHopistalsByArea1()">Theo tỉnh, thành phố</a></li>
+                    <li id="liHomeHome3"><a href="#" onclick="GoTopHopistalsByArea2()">Theo quận, huyện</a></li>
+                    <li id="liHomeHome4"><a href="#" onclick="GoTopHopistalsBySpecialist()">Theo chuyên khoa</a></li>
+                    break;
+                case "area1":
+                    <li id="liHomeHome1"><a href="#" onclick="GoTopHopistals()">Theo đánh giá</a></li>
+                    <li id="liHomeHome2" class="active"><a href="#" onclick="GoTopHopistalsByArea1()">Theo tỉnh, thành phố</a></li>
+                    <li id="liHomeHome3"><a href="#" onclick="GoTopHopistalsByArea2()">Theo quận, huyện</a></li>
+                    <li id="liHomeHome4"><a href="#" onclick="GoTopHopistalsBySpecialist()">Theo chuyên khoa</a></li>
+                    break;
+                case "area2":
+                    <li id="liHomeHome1"><a href="#" onclick="GoTopHopistals()">Theo đánh giá</a></li>
+                    <li id="liHomeHome2"><a href="#" onclick="GoTopHopistalsByArea1()">Theo tỉnh, thành phố</a></li>
+                    <li id="liHomeHome3" class="active"><a href="#" onclick="GoTopHopistalsByArea2()">Theo quận, huyện</a></li>
+                    <li id="liHomeHome4"><a href="#" onclick="GoTopHopistalsBySpecialist()">Theo chuyên khoa</a></li>
+                    break;
+                case "specialist":
+                    <li id="liHomeHome1"><a href="#" onclick="GoTopHopistals()">Theo đánh giá</a></li>
+                    <li id="liHomeHome2"><a href="#" onclick="GoTopHopistalsByArea1()">Theo tỉnh, thành phố</a></li>
+                    <li id="liHomeHome3"><a href="#" onclick="GoTopHopistalsByArea2()">Theo quận, huyện</a></li>
+                    <li id="liHomeHome3" class="active"><a href="#" onclick="GoTopHopistalsBySpecialist()">Theo chuyên khoa</a></li>
+                    break;
+                default:
+                    <li id="liHomeHome1" class="active"><a href="#" onclick="GoTopHopistals()">Theo đánh giá</a></li>
+                    <li id="liHomeHome2"><a href="#" onclick="GoTopHopistalsByArea1()">Theo tỉnh, thành phố</a></li>
+                    <li id="liHomeHome3"><a href="#" onclick="GoTopHopistalsByArea2()">Theo quận, huyện</a></li>
+                    <li id="liHomeHome3"><a href="#" onclick="GoTopHopistalsBySpecialist()">Theo chuyên khoa</a></li>
+                    break;
+            }
+        }      
+    </ul>
+    <h3>@Model.ListTitle</h3>
+    @{
+        switch (Model.TabValue)
+        {
+            case "rating":
+                <table class="table">
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Name)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Specialist)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Rating)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Area1)
+                        </th>
+                    </tr>
 
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Specialist)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Rating)
-        </th>
-    </tr>
-
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                <li>
+                    @foreach (var item in Model.Items)
+                    {
+                        <tr>
+                            <td>
+                                <li>
+                                    @{
+                                        string url = "../Search/ViewOnMaps?id=" + item.Id;
+                                        <a href="@url" onclick="GoToMapsFromLocationName()">
+                                             @Html.DisplayFor(modelItem => item.Name)
+                                        </a>
+                                    }
+                                </li>
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Specialist)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Rating)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Area1)
+                            </td>
+                        </tr>
+                    }
+                </table>
+                break;
+            case "area1":
+                <ul class="nav nav-tabs">
                     @{
-                        string url = "../Search/ViewOnMaps?id=" + item.Id;
-                        <a href="@url" onclick="GoToMapsFromLocationName()"> @Html.DisplayFor(modelItem => item.Name)</a>
+                        switch (@Model.TabValueLvl2)
+                        {
+                            case "Hà Nội":
+                                <li class="active"><a href="#" onclick="GoTopHopistalsByArea11()">Hà Nội</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsByArea12()">Tp. Hồ Chí Minh</a></li>
+                                break;
+                            case "Tp. Hồ Chí Minh":
+                                <li><a href="#" onclick="GoTopHopistalsByArea11()">Hà Nội</a></li>
+                                <li class="active"><a href="#" onclick="GoTopHopistalsByArea12()">Tp. Hồ Chí Minh</a></li>
+                                break;
+                            default:
+                                <li class="active"><a href="#" onclick="GoTopHopistalsByArea11()">Hà Nội</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsByArea12()">Tp. Hồ Chí Minh</a></li>
+                                break;
+                        }
                     }                   
-                </li>           
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Specialist)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Rating)
-            </td>
-        </tr>
-    }
+                </ul>
+                <table class="table">
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Name)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Specialist)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Rating)
+                        </th>
+                    </tr>
 
-</table>
+                    @foreach (var item in Model.Items)
+                        {
+                        <tr>
+                            <td>
+                                <li>
+                                    @{
+                                string url = "../Search/ViewOnMaps?id=" + item.Id;
+                                        <a href="@url" onclick="GoToMapsFromLocationName()">
+                                            @Html.DisplayFor(modelItem => item.Name)
+                                        </a>
+                                    }
+                                </li>
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Specialist)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Rating)
+                            </td>
+                        </tr>
+                    }
+                </table>
+                break;
+            case "area2":
+                switch (Model.TabValueLvl2)
+                {
+
+                }
+                break;
+            case "specialist":
+                <ul class="nav nav-tabs">
+                    @{
+                        switch (@Model.TabValueLvl2)
+                        {
+                            case "Chấn thương chỉnh hình":
+                                <li class="active"><a href="#" onclick="GoTopHopistalsBySpecialist1()">Chấn thương chỉnh hình</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist2()">Da liễu</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist3()">Đa khoa</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist4()">Khoa nhi</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist5()">Mắt</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist6()">Nhiệt đới</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist7()">Phụ sản</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist8()">Răng hàm mặt</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist9()">Tai mũi họng</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist10()">Tâm thần</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist11()">Tim mạch</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist12()">Ung bướu</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist13()">Y học cổ truyền</a></li>
+                                break;
+                            case "Da liễu":
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist1()">Chấn thương chỉnh hình</a></li>
+                                <li class="active"><a href="#" onclick="GoTopHopistalsBySpecialist2()">Da liễu</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist3()">Đa khoa</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist4()">Khoa nhi</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist5()">Mắt</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist6()">Nhiệt đới</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist7()">Phụ sản</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist8()">Răng hàm mặt</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist9()">Tai mũi họng</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist10()">Tâm thần</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist11()">Tim mạch</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist12()">Ung bướu</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist13()">Y học cổ truyền</a></li>
+                                break;
+                            case "Đa khoa":
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist1()">Chấn thương chỉnh hình</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist2()">Da liễu</a></li>
+                                <li class="active"><a href="#" onclick="GoTopHopistalsBySpecialist3()">Đa khoa</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist4()">Khoa nhi</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist5()">Mắt</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist6()">Nhiệt đới</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist7()">Phụ sản</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist8()">Răng hàm mặt</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist9()">Tai mũi họng</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist10()">Tâm thần</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist11()">Tim mạch</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist12()">Ung bướu</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist13()">Y học cổ truyền</a></li>
+                                break;
+                            case "Khoa nhi":
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist1()">Chấn thương chỉnh hình</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist2()">Da liễu</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist3()">Đa khoa</a></li>
+                                <li class="active"><a href="#" onclick="GoTopHopistalsBySpecialist4()">Khoa nhi</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist5()">Mắt</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist6()">Nhiệt đới</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist7()">Phụ sản</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist8()">Răng hàm mặt</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist9()">Tai mũi họng</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist10()">Tâm thần</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist11()">Tim mạch</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist12()">Ung bướu</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist13()">Y học cổ truyền</a></li>
+                                break;
+                            case "Mắt":
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist1()">Chấn thương chỉnh hình</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist2()">Da liễu</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist3()">Đa khoa</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist4()">Khoa nhi</a></li>
+                                <li class="active"><a href="#" onclick="GoTopHopistalsBySpecialist5()">Mắt</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist6()">Nhiệt đới</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist7()">Phụ sản</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist8()">Răng hàm mặt</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist9()">Tai mũi họng</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist10()">Tâm thần</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist11()">Tim mạch</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist12()">Ung bướu</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist13()">Y học cổ truyền</a></li>
+                                break;
+                            case "Nhiệt đới":
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist1()">Chấn thương chỉnh hình</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist2()">Da liễu</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist3()">Đa khoa</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist4()">Khoa nhi</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist5()">Mắt</a></li>
+                                <li class="active"><a href="#" onclick="GoTopHopistalsBySpecialist6()">Nhiệt đới</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist7()">Phụ sản</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist8()">Răng hàm mặt</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist9()">Tai mũi họng</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist10()">Tâm thần</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist11()">Tim mạch</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist12()">Ung bướu</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist13()">Y học cổ truyền</a></li>
+                                break;
+                            case "Phụ sản":
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist1()">Chấn thương chỉnh hình</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist2()">Da liễu</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist3()">Đa khoa</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist4()">Khoa nhi</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist5()">Mắt</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist6()">Nhiệt đới</a></li>
+                                <li class="active"><a href="#" onclick="GoTopHopistalsBySpecialist7()">Phụ sản</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist8()">Răng hàm mặt</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist9()">Tai mũi họng</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist10()">Tâm thần</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist11()">Tim mạch</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist12()">Ung bướu</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist13()">Y học cổ truyền</a></li>
+                                break;
+                            case "Răng hàm mặt":
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist1()">Chấn thương chỉnh hình</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist2()">Da liễu</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist3()">Đa khoa</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist4()">Khoa nhi</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist5()">Mắt</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist6()">Nhiệt đới</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist7()">Phụ sản</a></li>
+                                <li class="active"><a href="#" onclick="GoTopHopistalsBySpecialist8()">Răng hàm mặt</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist9()">Tai mũi họng</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist10()">Tâm thần</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist11()">Tim mạch</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist12()">Ung bướu</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist13()">Y học cổ truyền</a></li>
+                                break;
+                            case "Tai mũi họng":
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist1()">Chấn thương chỉnh hình</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist2()">Da liễu</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist3()">Đa khoa</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist4()">Khoa nhi</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist5()">Mắt</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist6()">Nhiệt đới</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist7()">Phụ sản</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist8()">Răng hàm mặt</a></li>
+                                <li class="active"><a href="#" onclick="GoTopHopistalsBySpecialist9()">Tai mũi họng</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist10()">Tâm thần</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist11()">Tim mạch</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist12()">Ung bướu</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist13()">Y học cổ truyền</a></li>
+                                break;
+                            case "Tâm thần":
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist1()">Chấn thương chỉnh hình</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist2()">Da liễu</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist3()">Đa khoa</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist4()">Khoa nhi</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist5()">Mắt</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist6()">Nhiệt đới</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist7()">Phụ sản</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist8()">Răng hàm mặt</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist9()">Tai mũi họng</a></li>
+                                <li class="active"><a href="#" onclick="GoTopHopistalsBySpecialist10()">Tâm thần</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist11()">Tim mạch</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist12()">Ung bướu</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist13()">Y học cổ truyền</a></li>
+                                break;
+                            case "Tim mạch":
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist1()">Chấn thương chỉnh hình</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist2()">Da liễu</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist3()">Đa khoa</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist4()">Khoa nhi</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist5()">Mắt</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist6()">Nhiệt đới</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist7()">Phụ sản</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist8()">Răng hàm mặt</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist9()">Tai mũi họng</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist10()">Tâm thần</a></li>
+                                <li class="active"><a href="#" onclick="GoTopHopistalsBySpecialist11()">Tim mạch</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist12()">Ung bướu</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist13()">Y học cổ truyền</a></li>
+                                break;
+                            case "Ung bướu":
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist1()">Chấn thương chỉnh hình</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist2()">Da liễu</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist3()">Đa khoa</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist4()">Khoa nhi</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist5()">Mắt</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist6()">Nhiệt đới</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist7()">Phụ sản</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist8()">Răng hàm mặt</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist9()">Tai mũi họng</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist10()">Tâm thần</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist11()">Tim mạch</a></li>
+                                <li class="active"><a href="#" onclick="GoTopHopistalsBySpecialist12()">Ung bướu</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist13()">Y học cổ truyền</a></li>
+                                break;
+                            case "Y học cổ truyền":
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist1()">Chấn thương chỉnh hình</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist2()">Da liễu</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist3()">Đa khoa</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist4()">Khoa nhi</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist5()">Mắt</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist6()">Nhiệt đới</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist7()">Phụ sản</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist8()">Răng hàm mặt</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist9()">Tai mũi họng</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist10()">Tâm thần</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist11()">Tim mạch</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist12()">Ung bướu</a></li>
+                                <li class="active"><a href="#" onclick="GoTopHopistalsBySpecialist13()">Y học cổ truyền</a></li>
+                                break;
+                            default:
+                                <li class="active"><a href="#" onclick="GoTopHopistalsBySpecialist1()">Chấn thương chỉnh hình</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist2()">Da liễu</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist3()">Đa khoa</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist4()">Khoa nhi</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist5()">Mắt</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist6()">Nhiệt đới</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist7()">Phụ sản</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist8()">Răng hàm mặt</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist9()">Tai mũi họng</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist10()">Tâm thần</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist11()">Tim mạch</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist12()">Ung bướu</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist13()">Y học cổ truyền</a></li>
+                                break;
+                        }
+                    }
+                </ul>
+                <table class="table">
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Name)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Specialist)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Rating)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Area1)
+                        </th>
+                    </tr>
+
+                    @foreach (var item in Model.Items)
+                    {
+                        <tr>
+                            <td>
+                                <li>
+                                    @{
+                                        string url = "../Search/ViewOnMaps?id=" + item.Id;
+                                        <a href="@url" onclick="GoToMapsFromLocationName()">
+                                            @Html.DisplayFor(modelItem => item.Name)
+                                        </a>
+                                    }
+                                </li>
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Specialist)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Rating)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Area1)
+                            </td>
+                        </tr>
+                    }
+                </table>
+                break;
+            default:
+                <table class="table">
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Name)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Specialist)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Rating)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Area1)
+                        </th>
+                    </tr>
+
+                    @foreach (var item in Model.Items)
+                    {
+                        <tr>
+                            <td>
+                                <li>
+                                    @{
+                                        string url = "../Search/ViewOnMaps?id=" + item.Id;
+                                        <a href="@url" onclick="GoToMapsFromLocationName()">
+                                                @Html.DisplayFor(modelItem => item.Name)
+                                        </a>
+                                    }
+                                </li>
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Specialist)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Rating)
+                            </td>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Area1)
+                            </th>
+                        </tr>
+                    }
+                </table>
+                break;
+        }
+    }
+    
+</div>
+
+<script src="~/Scripts/Customs/SearchScripts.js"></script>

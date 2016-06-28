@@ -17,19 +17,19 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/13/2016 15:30:23</publishTime>
     </File>
     <File Include="bin/BusinessLogicLayer.dll">
-      <publishTime>06/28/2016 01:34:48</publishTime>
+      <publishTime>06/28/2016 10:06:46</publishTime>
     </File>
     <File Include="bin/DataAccessLayer.dll">
-      <publishTime>06/28/2016 01:34:48</publishTime>
+      <publishTime>06/28/2016 10:06:46</publishTime>
     </File>
     <File Include="bin/DataTransferLayer.dll">
-      <publishTime>06/28/2016 01:34:48</publishTime>
+      <publishTime>06/28/2016 10:06:46</publishTime>
     </File>
     <File Include="bin/EntityFramework.dll">
       <publishTime>06/27/2016 22:04:54</publishTime>
     </File>
     <File Include="bin/HelperLayer.dll">
-      <publishTime>06/28/2016 01:34:48</publishTime>
+      <publishTime>06/28/2016 10:06:46</publishTime>
     </File>
     <File Include="bin/Microsoft.AI.Agent.Intercept.dll">
       <publishTime>06/27/2016 22:04:54</publishTime>
@@ -59,7 +59,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/27/2016 22:04:54</publishTime>
     </File>
     <File Include="bin/PresentationLayer.dll">
-      <publishTime>06/28/2016 01:34:52</publishTime>
+      <publishTime>06/28/2016 10:06:50</publishTime>
     </File>
     <File Include="bin/roslyn/csc.exe">
       <publishTime>06/27/2016 22:04:54</publishTime>
@@ -161,13 +161,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/13/2016 15:32:37</publishTime>
     </File>
     <File Include="scripts/Customs/GoogleAnalytics.js">
-      <publishTime>06/27/2016 19:17:47</publishTime>
+      <publishTime>06/28/2016 10:04:49</publishTime>
     </File>
     <File Include="scripts/Customs/GoogleAutoComplete.js">
       <publishTime>06/27/2016 22:39:24</publishTime>
     </File>
     <File Include="scripts/Customs/SearchScripts.js">
-      <publishTime>06/28/2016 01:37:47</publishTime>
+      <publishTime>06/28/2016 10:06:05</publishTime>
     </File>
     <File Include="scripts/jquery-1.10.2.js">
       <publishTime>05/13/2016 15:32:39</publishTime>
@@ -194,7 +194,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/13/2016 15:52:58</publishTime>
     </File>
     <File Include="Views/Home/Home.cshtml">
-      <publishTime>06/27/2016 19:16:24</publishTime>
+      <publishTime>06/28/2016 10:02:21</publishTime>
     </File>
     <File Include="Views/Home/Index.cshtml">
       <publishTime>05/13/2016 15:32:35</publishTime>

@@ -13,11 +13,19 @@ namespace DataAccessLayer.XmlDatabaseContexts
         #region Singleton
 
         private static LocationXmlContext _instance;
+        private static readonly object Padlock = new object();
+
         public static LocationXmlContext GetInstance(string path)
         {
             if (_instance == null)
             {
-                _instance = new LocationXmlContext(path);
+                lock (Padlock)
+                {
+                    if (_instance == null)
+                    {
+                        _instance = new LocationXmlContext(path);
+                    }
+                }              
             }
 
             return _instance;
@@ -106,7 +114,7 @@ namespace DataAccessLayer.XmlDatabaseContexts
             return results;
         }
 
-        public int AddLocation(LocationDto data)
+        public string AddLocation(LocationDto data)
         {
             if (data != null)
             {
@@ -133,9 +141,56 @@ namespace DataAccessLayer.XmlDatabaseContexts
                     "Longitude", data.Longitude.ToString(CultureInfo.CurrentCulture));
 
                 Save();
+                return newIdStr;
             }
 
-            return -1;
+            return "-1";
+        }
+
+        public bool UpdateLocation(LocationDto data)
+        {
+            if (data != null)
+            {
+                var exists = XmlHelper.GetElementsWithAttribute(_root, "Location", "Id", data.Id);
+                if (exists.Count <= 0) return false;
+
+                var newItem = exists[0];
+                XmlHelper.CreateAttribute(_doc, newItem, "Name", data.Name);
+                XmlHelper.CreateAttribute(_doc, newItem, "Address", data.Address);
+                XmlHelper.CreateAttribute(_doc, newItem, "PhoneNumbers", data.PhoneNumbers);
+                XmlHelper.CreateAttribute(_doc, newItem, "FaxNumbers", data.FaxNumbers);
+                XmlHelper.CreateAttribute(_doc, newItem, "LocationType", data.LocationType);
+                XmlHelper.CreateAttribute(_doc, newItem,
+                    "Specialists", LocationDto.SpecialistsToString(data.Specialists));
+                XmlHelper.CreateAttribute(_doc, newItem,
+                    "Rating", data.Rating.ToString(CultureInfo.CurrentCulture));
+                XmlHelper.CreateAttribute(_doc, newItem, "Area1", data.Area1);
+                XmlHelper.CreateAttribute(_doc, newItem, "Area2", data.Area2);
+                XmlHelper.CreateAttribute(_doc, newItem,
+                    "Latitude", data.Latitude.ToString(CultureInfo.CurrentCulture));
+                XmlHelper.CreateAttribute(_doc, newItem,
+                    "Longitude", data.Longitude.ToString(CultureInfo.CurrentCulture));
+
+                Save();
+                return true;
+            }
+
+            return false;
+        }
+
+        public bool DeleteLocation(string id)
+        {
+            if (!string.IsNullOrEmpty(id))
+            {
+                var exists = XmlHelper.GetElementsWithAttribute(_root, "Location", "Id", id);
+                if (exists.Count <= 0) return false;
+
+                _root.RemoveChild(exists[0]);
+                Save();
+                return true;
+            }
+
+            return false;
         }
 
         #endregion

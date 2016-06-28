@@ -23,8 +23,8 @@ namespace PresentationLayer.Controllers
                 Locations = new List<SearchLocationViewModel>()
             };
 
-            string path = AppDomain.CurrentDomain.BaseDirectory + "bin\\Hopitals.txt";
-            List<LocationDto> locations = LocationBlo.GetLocations(path);
+            string path = AppDomain.CurrentDomain.BaseDirectory;
+            List<LocationDto> locations = LocationBlo.GetLocations2(path);
 
             if(!string.IsNullOrEmpty(txtSearch))
             {
@@ -85,8 +85,8 @@ namespace PresentationLayer.Controllers
 
             if (!string.IsNullOrEmpty(id))
             {
-                string path = AppDomain.CurrentDomain.BaseDirectory + "bin\\Hopitals.txt";
-                List<LocationDto> locations = LocationBlo.GetLocations(path);
+                string path = AppDomain.CurrentDomain.BaseDirectory;
+                List<LocationDto> locations = LocationBlo.GetLocations2(path);
                 model.Id = id;
 
                 var results = LocationBlo.Search(locations, SearchOption.Id, id);

@@ -48,10 +48,24 @@ namespace DataTransferLayer.Locations
                 {
                     result += specialists[i] + ";";
                 }
-                result += specialists[specialists.Count - 1];
+
+                if (specialists.Count > 0)
+                {
+                    result += specialists[specialists.Count - 1];
+                }              
             }
 
             return result;
+        }
+
+        public bool Exists(string specialist)
+        {
+            if (!string.IsNullOrEmpty(specialist))
+            {
+                return Specialists.Exists(x => x == specialist);
+            }
+
+            return false;
         }
     }
 }

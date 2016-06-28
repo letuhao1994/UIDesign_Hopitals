@@ -223,13 +223,13 @@ namespace BusinessLogicLayer
             }
         }
 
-        public static List<LocationDto> GetLocations(string path)
-        {
-            var result = LocationDao.GetLocations(path);
-            SortBýpecialistAndName(result, true);
+        //public static List<LocationDto> GetLocations(string path)
+        //{
+        //    var result = LocationDao.GetLocations(path);
+        //    SortBýpecialistAndName(result, true);
 
-            return result;
-        }
+        //    return result;
+        //}
 
         public static List<LocationDto> GetLocations2(string path)
         {
@@ -237,9 +237,19 @@ namespace BusinessLogicLayer
             return result;
         }
 
-        public static int Add(string path, LocationDto location)
+        public static string Add(string path, LocationDto location)
         {
             return LocationDao.AddLocation(path, location);
+        }
+
+        public static bool Update(string path, LocationDto location)
+        {
+            return LocationDao.UpdateLocation(path, location);
+        }
+
+        public static bool Delete(string path, string id)
+        {
+            return LocationDao.DeleteLocation(path, id);
         }
 
         public static void Sort(List<LocationDto> data, SortOption sortOption, bool isAscending)
