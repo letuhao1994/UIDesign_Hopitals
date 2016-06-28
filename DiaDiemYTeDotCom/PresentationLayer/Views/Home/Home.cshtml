@@ -147,10 +147,511 @@
                 </table>
                 break;
             case "area2":
-                switch (Model.TabValueLvl2)
-                {
-
+                <ul class="nav nav-tabs">
+                    @{
+                        switch (@Model.TabValueLvl2)
+                        {
+                            case "Hà Nội":
+                                <li class="active"><a href="#" onclick="GoTopHopistalsByArea2_1_1()">Hà Nội</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsByArea2_2_1()">Tp. Hồ Chí Minh</a></li>
+                                break;
+                            case "Tp. Hồ Chí Minh":
+                                <li><a href="#" onclick="GoTopHopistalsByArea2_1_1()">Hà Nội</a></li>
+                                <li class="active"><a href="#" onclick="GoTopHopistalsByArea2_2_1()">Tp. Hồ Chí Minh</a></li>
+                                break;
+                            default:
+                                <li class="active"><a href="#" onclick="GoTopHopistalsByArea2_1_1()">Hà Nội</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsByArea2_2_1()">Tp. Hồ Chí Minh</a></li>
+                                break;
+                        }
+                    }
+                </ul>
+                <ul class="nav nav-tabs">
+                @{
+                    switch (@Model.TabValueLvl2)
+                    {
+                        case "Hà Nội":
+                            switch (@Model.TabValueLvl3)
+                            {
+                                case "Cầu Giấy":
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_1_1()"></a></li>
+                                    break;
+                                default:
+                                    break;
+                            }
+                            break;
+                        case "Hồ Chính Minh":
+                            switch (@Model.TabValueLvl3)
+                            {
+                                case "Quận 1":
+                                    <li class="active"><a href="#" onclick="GoTopHopistalsByArea2_2_1()"></a>Quận 1</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_2()"></a>Quận 2</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_3()"></a>Quận 3</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_4()"></a>Quận 4</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_5()"></a>Quận 5</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_6()"></a>Quận 6</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_7()"></a>Quận 7</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_8()"></a>Quận 8</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_9()"></a>Quận 9</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_10()"></a>Quận 10</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_11()"></a>Quận 11</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_12()"></a>Quận 12</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_13()"></a>Bình Thạnh</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_14()"></a>Gò Vấp</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_15()"></a>Tân Bình</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_16()"></a>Tân Phú</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_17()"></a>Thủ Đức</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_18()"></a>Củ Chi</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_19()"></a>Hóc Môn</li>
+                                    break;
+                                case "Quận 2":
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_1()"></a>Quận 1</li>
+                                    <li class="active"><a href="#" onclick="GoTopHopistalsByArea2_2_2()"></a>Quận 2</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_3()"></a>Quận 3</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_4()"></a>Quận 4</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_5()"></a>Quận 5</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_6()"></a>Quận 6</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_7()"></a>Quận 7</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_8()"></a>Quận 8</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_9()"></a>Quận 9</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_10()"></a>Quận 10</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_11()"></a>Quận 11</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_12()"></a>Quận 12</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_13()"></a>Bình Thạnh</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_14()"></a>Gò Vấp</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_15()"></a>Tân Bình</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_16()"></a>Tân Phú</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_17()"></a>Thủ Đức</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_18()"></a>Củ Chi</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_19()"></a>Hóc Môn</li>
+                                    break;
+                                case "Quận 3":
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_1()"></a>Quận 1</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_2()"></a>Quận 2</li>
+                                    <li class="active"><a href="#" onclick="GoTopHopistalsByArea2_2_3()"></a>Quận 3</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_4()"></a>Quận 4</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_5()"></a>Quận 5</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_6()"></a>Quận 6</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_7()"></a>Quận 7</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_8()"></a>Quận 8</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_9()"></a>Quận 9</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_10()"></a>Quận 10</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_11()"></a>Quận 11</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_12()"></a>Quận 12</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_13()"></a>Bình Thạnh</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_14()"></a>Gò Vấp</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_15()"></a>Tân Bình</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_16()"></a>Tân Phú</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_17()"></a>Thủ Đức</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_18()"></a>Củ Chi</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_19()"></a>Hóc Môn</li>
+                                    break;
+                                case "Quận 4":
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_1()"></a>Quận 1</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_2()"></a>Quận 2</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_3()"></a>Quận 3</li>
+                                    <li class="active"><a href="#" onclick="GoTopHopistalsByArea2_2_4()"></a>Quận 4</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_5()"></a>Quận 5</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_6()"></a>Quận 6</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_7()"></a>Quận 7</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_8()"></a>Quận 8</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_9()"></a>Quận 9</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_10()"></a>Quận 10</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_11()"></a>Quận 11</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_12()"></a>Quận 12</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_13()"></a>Bình Thạnh</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_14()"></a>Gò Vấp</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_15()"></a>Tân Bình</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_16()"></a>Tân Phú</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_17()"></a>Thủ Đức</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_18()"></a>Củ Chi</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_19()"></a>Hóc Môn</li>
+                                    break;
+                                case "Quận 5":
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_1()"></a>Quận 1</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_2()"></a>Quận 2</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_3()"></a>Quận 3</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_4()"></a>Quận 4</li>
+                                    <li class="active"><a href="#" onclick="GoTopHopistalsByArea2_2_5()"></a>Quận 5</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_6()"></a>Quận 6</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_7()"></a>Quận 7</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_8()"></a>Quận 8</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_9()"></a>Quận 9</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_10()"></a>Quận 10</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_11()"></a>Quận 11</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_12()"></a>Quận 12</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_13()"></a>Bình Thạnh</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_14()"></a>Gò Vấp</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_15()"></a>Tân Bình</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_16()"></a>Tân Phú</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_17()"></a>Thủ Đức</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_18()"></a>Củ Chi</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_19()"></a>Hóc Môn</li>
+                                    break;
+                                case "Quận 6":
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_1()"></a>Quận 1</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_2()"></a>Quận 2</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_3()"></a>Quận 3</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_4()"></a>Quận 4</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_5()"></a>Quận 5</li>
+                                    <li class="active"><a href="#" onclick="GoTopHopistalsByArea2_2_6()"></a>Quận 6</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_7()"></a>Quận 7</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_8()"></a>Quận 8</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_9()"></a>Quận 9</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_10()"></a>Quận 10</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_11()"></a>Quận 11</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_12()"></a>Quận 12</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_13()"></a>Bình Thạnh</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_14()"></a>Gò Vấp</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_15()"></a>Tân Bình</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_16()"></a>Tân Phú</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_17()"></a>Thủ Đức</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_18()"></a>Củ Chi</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_19()"></a>Hóc Môn</li>
+                                    break;
+                                case "Quận 7":
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_1()"></a>Quận 1</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_2()"></a>Quận 2</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_3()"></a>Quận 3</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_4()"></a>Quận 4</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_5()"></a>Quận 5</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_6()"></a>Quận 6</li>
+                                    <li class="active"><a href="#" onclick="GoTopHopistalsByArea2_2_7()"></a>Quận 7</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_8()"></a>Quận 8</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_9()"></a>Quận 9</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_10()"></a>Quận 10</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_11()"></a>Quận 11</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_12()"></a>Quận 12</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_13()"></a>Bình Thạnh</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_14()"></a>Gò Vấp</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_15()"></a>Tân Bình</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_16()"></a>Tân Phú</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_17()"></a>Thủ Đức</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_18()"></a>Củ Chi</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_19()"></a>Hóc Môn</li>
+                                    break;
+                                case "Quận 8":
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_1()"></a>Quận 1</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_2()"></a>Quận 2</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_3()"></a>Quận 3</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_4()"></a>Quận 4</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_5()"></a>Quận 5</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_6()"></a>Quận 6</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_7()"></a>Quận 7</li>
+                                    <li class="active"><a href="#" onclick="GoTopHopistalsByArea2_2_8()"></a>Quận 8</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_9()"></a>Quận 9</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_10()"></a>Quận 10</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_11()"></a>Quận 11</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_12()"></a>Quận 12</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_13()"></a>Bình Thạnh</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_14()"></a>Gò Vấp</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_15()"></a>Tân Bình</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_16()"></a>Tân Phú</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_17()"></a>Thủ Đức</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_18()"></a>Củ Chi</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_19()"></a>Hóc Môn</li>
+                                    break;
+                                case "Quận 9":
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_1()"></a>Quận 1</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_2()"></a>Quận 2</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_3()"></a>Quận 3</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_4()"></a>Quận 4</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_5()"></a>Quận 5</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_6()"></a>Quận 6</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_7()"></a>Quận 7</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_8()"></a>Quận 8</li>
+                                    <li class="active"><a href="#" onclick="GoTopHopistalsByArea2_2_9()"></a>Quận 9</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_10()"></a>Quận 10</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_11()"></a>Quận 11</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_12()"></a>Quận 12</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_13()"></a>Bình Thạnh</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_14()"></a>Gò Vấp</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_15()"></a>Tân Bình</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_16()"></a>Tân Phú</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_17()"></a>Thủ Đức</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_18()"></a>Củ Chi</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_19()"></a>Hóc Môn</li>
+                                    break;
+                                case "Quận 10":
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_1()"></a>Quận 1</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_2()"></a>Quận 2</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_3()"></a>Quận 3</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_4()"></a>Quận 4</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_5()"></a>Quận 5</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_6()"></a>Quận 6</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_7()"></a>Quận 7</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_8()"></a>Quận 8</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_9()"></a>Quận 9</li>
+                                    <li class="active"><a href="#" onclick="GoTopHopistalsByArea2_2_10()"></a>Quận 10</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_11()"></a>Quận 11</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_12()"></a>Quận 12</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_13()"></a>Bình Thạnh</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_14()"></a>Gò Vấp</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_15()"></a>Tân Bình</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_16()"></a>Tân Phú</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_17()"></a>Thủ Đức</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_18()"></a>Củ Chi</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_19()"></a>Hóc Môn</li>
+                                    break;
+                                case "Quận 11":
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_1()"></a>Quận 1</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_2()"></a>Quận 2</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_3()"></a>Quận 3</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_4()"></a>Quận 4</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_5()"></a>Quận 5</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_6()"></a>Quận 6</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_7()"></a>Quận 7</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_8()"></a>Quận 8</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_9()"></a>Quận 9</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_10()"></a>Quận 10</li>
+                                    <li class="active"><a href="#" onclick="GoTopHopistalsByArea2_2_11()"></a>Quận 11</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_12()"></a>Quận 12</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_13()"></a>Bình Thạnh</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_14()"></a>Gò Vấp</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_15()"></a>Tân Bình</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_16()"></a>Tân Phú</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_17()"></a>Thủ Đức</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_18()"></a>Củ Chi</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_19()"></a>Hóc Môn</li>
+                                    break;
+                                case "Quận 12":
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_1()"></a>Quận 1</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_2()"></a>Quận 2</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_3()"></a>Quận 3</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_4()"></a>Quận 4</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_5()"></a>Quận 5</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_6()"></a>Quận 6</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_7()"></a>Quận 7</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_8()"></a>Quận 8</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_9()"></a>Quận 9</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_10()"></a>Quận 10</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_11()"></a>Quận 11</li>
+                                    <li class="active"><a href="#" onclick="GoTopHopistalsByArea2_2_12()"></a>Quận 12</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_13()"></a>Bình Thạnh</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_14()"></a>Gò Vấp</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_15()"></a>Tân Bình</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_16()"></a>Tân Phú</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_17()"></a>Thủ Đức</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_18()"></a>Củ Chi</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_19()"></a>Hóc Môn</li>
+                                    break;
+                                case "Bình Thạnh":
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_1()"></a>Quận 1</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_2()"></a>Quận 2</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_3()"></a>Quận 3</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_4()"></a>Quận 4</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_5()"></a>Quận 5</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_6()"></a>Quận 6</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_7()"></a>Quận 7</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_8()"></a>Quận 8</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_9()"></a>Quận 9</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_10()"></a>Quận 10</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_11()"></a>Quận 11</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_12()"></a>Quận 12</li>
+                                    <li class="active"><a href="#" onclick="GoTopHopistalsByArea2_2_13()"></a>Bình Thạnh</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_14()"></a>Gò Vấp</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_15()"></a>Tân Bình</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_16()"></a>Tân Phú</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_17()"></a>Thủ Đức</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_18()"></a>Củ Chi</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_19()"></a>Hóc Môn</li>
+                                    break;
+                                case "Gò Vấp":
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_1()"></a>Quận 1</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_2()"></a>Quận 2</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_3()"></a>Quận 3</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_4()"></a>Quận 4</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_5()"></a>Quận 5</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_6()"></a>Quận 6</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_7()"></a>Quận 7</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_8()"></a>Quận 8</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_9()"></a>Quận 9</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_10()"></a>Quận 10</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_11()"></a>Quận 11</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_12()"></a>Quận 12</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_13()"></a>Bình Thạnh</li>
+                                    <li class="active"><a href="#" onclick="GoTopHopistalsByArea2_2_14()"></a>Gò Vấp</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_15()"></a>Tân Bình</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_16()"></a>Tân Phú</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_17()"></a>Thủ Đức</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_18()"></a>Củ Chi</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_19()"></a>Hóc Môn</li>
+                                    break;
+                                case "Tân Bình":
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_1()"></a>Quận 1</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_2()"></a>Quận 2</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_3()"></a>Quận 3</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_4()"></a>Quận 4</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_5()"></a>Quận 5</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_6()"></a>Quận 6</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_7()"></a>Quận 7</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_8()"></a>Quận 8</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_9()"></a>Quận 9</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_10()"></a>Quận 10</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_11()"></a>Quận 11</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_12()"></a>Quận 12</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_13()"></a>Bình Thạnh</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_14()"></a>Gò Vấp</li>
+                                    <li class="active"><a href="#" onclick="GoTopHopistalsByArea2_2_15()"></a>Tân Bình</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_16()"></a>Tân Phú</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_17()"></a>Thủ Đức</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_18()"></a>Củ Chi</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_19()"></a>Hóc Môn</li>
+                                    break;
+                                case "Tân Phú":
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_1()"></a>Quận 1</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_2()"></a>Quận 2</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_3()"></a>Quận 3</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_4()"></a>Quận 4</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_5()"></a>Quận 5</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_6()"></a>Quận 6</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_7()"></a>Quận 7</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_8()"></a>Quận 8</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_9()"></a>Quận 9</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_10()"></a>Quận 10</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_11()"></a>Quận 11</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_12()"></a>Quận 12</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_13()"></a>Bình Thạnh</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_14()"></a>Gò Vấp</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_15()"></a>Tân Bình</li>
+                                    <li class="active"><a href="#" onclick="GoTopHopistalsByArea2_2_16()"></a>Tân Phú</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_17()"></a>Thủ Đức</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_18()"></a>Củ Chi</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_19()"></a>Hóc Môn</li>
+                                    break;
+                                case "Thủ Đức":
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_1()"></a>Quận 1</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_2()"></a>Quận 2</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_3()"></a>Quận 3</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_4()"></a>Quận 4</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_5()"></a>Quận 5</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_6()"></a>Quận 6</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_7()"></a>Quận 7</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_8()"></a>Quận 8</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_9()"></a>Quận 9</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_10()"></a>Quận 10</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_11()"></a>Quận 11</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_12()"></a>Quận 12</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_13()"></a>Bình Thạnh</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_14()"></a>Gò Vấp</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_15()"></a>Tân Bình</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_16()"></a>Tân Phú</li>
+                                    <li class="active"><a href="#" onclick="GoTopHopistalsByArea2_2_17()"></a>Thủ Đức</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_18()"></a>Củ Chi</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_19()"></a>Hóc Môn</li>
+                                    break;
+                                case "Củ Chi":
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_1()"></a>Quận 1</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_2()"></a>Quận 2</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_3()"></a>Quận 3</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_4()"></a>Quận 4</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_5()"></a>Quận 5</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_6()"></a>Quận 6</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_7()"></a>Quận 7</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_8()"></a>Quận 8</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_9()"></a>Quận 9</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_10()"></a>Quận 10</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_11()"></a>Quận 11</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_12()"></a>Quận 12</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_13()"></a>Bình Thạnh</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_14()"></a>Gò Vấp</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_15()"></a>Tân Bình</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_16()"></a>Tân Phú</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_17()"></a>Thủ Đức</li>
+                                    <li class="active"><a href="#" onclick="GoTopHopistalsByArea2_2_18()"></a>Củ Chi</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_19()"></a>Hóc Môn</li>
+                                    break;
+                                case "Hóc Môn":
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_1()"></a>Quận 1</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_2()"></a>Quận 2</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_3()"></a>Quận 3</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_4()"></a>Quận 4</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_5()"></a>Quận 5</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_6()"></a>Quận 6</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_7()"></a>Quận 7</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_8()"></a>Quận 8</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_9()"></a>Quận 9</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_10()"></a>Quận 10</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_11()"></a>Quận 11</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_12()"></a>Quận 12</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_13()"></a>Bình Thạnh</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_14()"></a>Gò Vấp</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_15()"></a>Tân Bình</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_16()"></a>Tân Phú</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_17()"></a>Thủ Đức</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_18()"></a>Củ Chi</li>
+                                    <li class="active"><a href="#" onclick="GoTopHopistalsByArea2_2_19()"></a>Hóc Môn</li>
+                                    break;
+                                default:
+                                    <li class="active"><a href="#" onclick="GoTopHopistalsByArea2_2_1()"></a>Quận 1</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_2()"></a>Quận 2</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_3()"></a>Quận 3</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_4()"></a>Quận 4</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_5()"></a>Quận 5</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_6()"></a>Quận 6</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_7()"></a>Quận 7</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_8()"></a>Quận 8</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_9()"></a>Quận 9</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_10()"></a>Quận 10</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_11()"></a>Quận 11</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_12()"></a>Quận 12</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_13()"></a>Bình Thạnh</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_14()"></a>Gò Vấp</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_15()"></a>Tân Bình</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_16()"></a>Tân Phú</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_17()"></a>Thủ Đức</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_18()"></a>Củ Chi</li>
+                                    <li><a href="#" onclick="GoTopHopistalsByArea2_2_19()"></a>Hóc Môn</li>
+                                    break;
+                            }
+                            break;
+                        default:
+                            switch (@Model.TabValueLvl3)
+                            {
+                                case "":
+                                    break;
+                                default:
+                                    break;
+                            }
+                            break;
+                    }
                 }
+                </ul>
+                <table class="table">
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Name)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Specialist)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Rating)
+                        </th>
+                    </tr>
+
+                    @foreach (var item in Model.Items)
+                    {
+                        <tr>
+                            <td>
+                                <li>
+                                    @{
+                                        string url = "../Search/ViewOnMaps?id=" + item.Id;
+                                        <a href="@url" onclick="GoToMapsFromLocationName()">
+                                            @Html.DisplayFor(modelItem => item.Name)
+                                        </a>
+                                    }
+                                </li>
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Specialist)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Rating)
+                            </td>
+                        </tr>
+                    }
+                </table>
                 break;
             case "specialist":
                 <ul class="nav nav-tabs">
@@ -167,7 +668,7 @@
                                 <li><a href="#" onclick="GoTopHopistalsBySpecialist7()">Phụ sản</a></li>
                                 <li><a href="#" onclick="GoTopHopistalsBySpecialist8()">Răng hàm mặt</a></li>
                                 <li><a href="#" onclick="GoTopHopistalsBySpecialist9()">Tai mũi họng</a></li>
-                                <li><a href="#" onclick="GoTopHopistalsBySpecialist10()">Tâm thần</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist10()">Thần kinh</a></li>
                                 <li><a href="#" onclick="GoTopHopistalsBySpecialist11()">Tim mạch</a></li>
                                 <li><a href="#" onclick="GoTopHopistalsBySpecialist12()">Ung bướu</a></li>
                                 <li><a href="#" onclick="GoTopHopistalsBySpecialist13()">Y học cổ truyền</a></li>
@@ -182,7 +683,7 @@
                                 <li><a href="#" onclick="GoTopHopistalsBySpecialist7()">Phụ sản</a></li>
                                 <li><a href="#" onclick="GoTopHopistalsBySpecialist8()">Răng hàm mặt</a></li>
                                 <li><a href="#" onclick="GoTopHopistalsBySpecialist9()">Tai mũi họng</a></li>
-                                <li><a href="#" onclick="GoTopHopistalsBySpecialist10()">Tâm thần</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist10()">Thần kinh</a></li>
                                 <li><a href="#" onclick="GoTopHopistalsBySpecialist11()">Tim mạch</a></li>
                                 <li><a href="#" onclick="GoTopHopistalsBySpecialist12()">Ung bướu</a></li>
                                 <li><a href="#" onclick="GoTopHopistalsBySpecialist13()">Y học cổ truyền</a></li>
@@ -197,7 +698,7 @@
                                 <li><a href="#" onclick="GoTopHopistalsBySpecialist7()">Phụ sản</a></li>
                                 <li><a href="#" onclick="GoTopHopistalsBySpecialist8()">Răng hàm mặt</a></li>
                                 <li><a href="#" onclick="GoTopHopistalsBySpecialist9()">Tai mũi họng</a></li>
-                                <li><a href="#" onclick="GoTopHopistalsBySpecialist10()">Tâm thần</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist10()">Thần kinh</a></li>
                                 <li><a href="#" onclick="GoTopHopistalsBySpecialist11()">Tim mạch</a></li>
                                 <li><a href="#" onclick="GoTopHopistalsBySpecialist12()">Ung bướu</a></li>
                                 <li><a href="#" onclick="GoTopHopistalsBySpecialist13()">Y học cổ truyền</a></li>
@@ -212,7 +713,7 @@
                                 <li><a href="#" onclick="GoTopHopistalsBySpecialist7()">Phụ sản</a></li>
                                 <li><a href="#" onclick="GoTopHopistalsBySpecialist8()">Răng hàm mặt</a></li>
                                 <li><a href="#" onclick="GoTopHopistalsBySpecialist9()">Tai mũi họng</a></li>
-                                <li><a href="#" onclick="GoTopHopistalsBySpecialist10()">Tâm thần</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist10()">Thần kinh</a></li>
                                 <li><a href="#" onclick="GoTopHopistalsBySpecialist11()">Tim mạch</a></li>
                                 <li><a href="#" onclick="GoTopHopistalsBySpecialist12()">Ung bướu</a></li>
                                 <li><a href="#" onclick="GoTopHopistalsBySpecialist13()">Y học cổ truyền</a></li>
@@ -227,7 +728,7 @@
                                 <li><a href="#" onclick="GoTopHopistalsBySpecialist7()">Phụ sản</a></li>
                                 <li><a href="#" onclick="GoTopHopistalsBySpecialist8()">Răng hàm mặt</a></li>
                                 <li><a href="#" onclick="GoTopHopistalsBySpecialist9()">Tai mũi họng</a></li>
-                                <li><a href="#" onclick="GoTopHopistalsBySpecialist10()">Tâm thần</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist10()">Thần kinh</a></li>
                                 <li><a href="#" onclick="GoTopHopistalsBySpecialist11()">Tim mạch</a></li>
                                 <li><a href="#" onclick="GoTopHopistalsBySpecialist12()">Ung bướu</a></li>
                                 <li><a href="#" onclick="GoTopHopistalsBySpecialist13()">Y học cổ truyền</a></li>
@@ -242,7 +743,7 @@
                                 <li><a href="#" onclick="GoTopHopistalsBySpecialist7()">Phụ sản</a></li>
                                 <li><a href="#" onclick="GoTopHopistalsBySpecialist8()">Răng hàm mặt</a></li>
                                 <li><a href="#" onclick="GoTopHopistalsBySpecialist9()">Tai mũi họng</a></li>
-                                <li><a href="#" onclick="GoTopHopistalsBySpecialist10()">Tâm thần</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist10()">Thần kinh</a></li>
                                 <li><a href="#" onclick="GoTopHopistalsBySpecialist11()">Tim mạch</a></li>
                                 <li><a href="#" onclick="GoTopHopistalsBySpecialist12()">Ung bướu</a></li>
                                 <li><a href="#" onclick="GoTopHopistalsBySpecialist13()">Y học cổ truyền</a></li>
@@ -257,7 +758,7 @@
                                 <li class="active"><a href="#" onclick="GoTopHopistalsBySpecialist7()">Phụ sản</a></li>
                                 <li><a href="#" onclick="GoTopHopistalsBySpecialist8()">Răng hàm mặt</a></li>
                                 <li><a href="#" onclick="GoTopHopistalsBySpecialist9()">Tai mũi họng</a></li>
-                                <li><a href="#" onclick="GoTopHopistalsBySpecialist10()">Tâm thần</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist10()">Thần kinh</a></li>
                                 <li><a href="#" onclick="GoTopHopistalsBySpecialist11()">Tim mạch</a></li>
                                 <li><a href="#" onclick="GoTopHopistalsBySpecialist12()">Ung bướu</a></li>
                                 <li><a href="#" onclick="GoTopHopistalsBySpecialist13()">Y học cổ truyền</a></li>
@@ -272,7 +773,7 @@
                                 <li><a href="#" onclick="GoTopHopistalsBySpecialist7()">Phụ sản</a></li>
                                 <li class="active"><a href="#" onclick="GoTopHopistalsBySpecialist8()">Răng hàm mặt</a></li>
                                 <li><a href="#" onclick="GoTopHopistalsBySpecialist9()">Tai mũi họng</a></li>
-                                <li><a href="#" onclick="GoTopHopistalsBySpecialist10()">Tâm thần</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist10()">Thần kinh</a></li>
                                 <li><a href="#" onclick="GoTopHopistalsBySpecialist11()">Tim mạch</a></li>
                                 <li><a href="#" onclick="GoTopHopistalsBySpecialist12()">Ung bướu</a></li>
                                 <li><a href="#" onclick="GoTopHopistalsBySpecialist13()">Y học cổ truyền</a></li>
@@ -287,12 +788,12 @@
                                 <li><a href="#" onclick="GoTopHopistalsBySpecialist7()">Phụ sản</a></li>
                                 <li><a href="#" onclick="GoTopHopistalsBySpecialist8()">Răng hàm mặt</a></li>
                                 <li class="active"><a href="#" onclick="GoTopHopistalsBySpecialist9()">Tai mũi họng</a></li>
-                                <li><a href="#" onclick="GoTopHopistalsBySpecialist10()">Tâm thần</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist10()">Thần kinh</a></li>
                                 <li><a href="#" onclick="GoTopHopistalsBySpecialist11()">Tim mạch</a></li>
                                 <li><a href="#" onclick="GoTopHopistalsBySpecialist12()">Ung bướu</a></li>
                                 <li><a href="#" onclick="GoTopHopistalsBySpecialist13()">Y học cổ truyền</a></li>
                                 break;
-                            case "Tâm thần":
+                            case "Thần kinh":
                                 <li><a href="#" onclick="GoTopHopistalsBySpecialist1()">Chấn thương chỉnh hình</a></li>
                                 <li><a href="#" onclick="GoTopHopistalsBySpecialist2()">Da liễu</a></li>
                                 <li><a href="#" onclick="GoTopHopistalsBySpecialist3()">Đa khoa</a></li>
@@ -302,7 +803,7 @@
                                 <li><a href="#" onclick="GoTopHopistalsBySpecialist7()">Phụ sản</a></li>
                                 <li><a href="#" onclick="GoTopHopistalsBySpecialist8()">Răng hàm mặt</a></li>
                                 <li><a href="#" onclick="GoTopHopistalsBySpecialist9()">Tai mũi họng</a></li>
-                                <li class="active"><a href="#" onclick="GoTopHopistalsBySpecialist10()">Tâm thần</a></li>
+                                <li class="active"><a href="#" onclick="GoTopHopistalsBySpecialist10()">Thần kinh</a></li>
                                 <li><a href="#" onclick="GoTopHopistalsBySpecialist11()">Tim mạch</a></li>
                                 <li><a href="#" onclick="GoTopHopistalsBySpecialist12()">Ung bướu</a></li>
                                 <li><a href="#" onclick="GoTopHopistalsBySpecialist13()">Y học cổ truyền</a></li>
@@ -317,7 +818,7 @@
                                 <li><a href="#" onclick="GoTopHopistalsBySpecialist7()">Phụ sản</a></li>
                                 <li><a href="#" onclick="GoTopHopistalsBySpecialist8()">Răng hàm mặt</a></li>
                                 <li><a href="#" onclick="GoTopHopistalsBySpecialist9()">Tai mũi họng</a></li>
-                                <li><a href="#" onclick="GoTopHopistalsBySpecialist10()">Tâm thần</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist10()">Thần kinh</a></li>
                                 <li class="active"><a href="#" onclick="GoTopHopistalsBySpecialist11()">Tim mạch</a></li>
                                 <li><a href="#" onclick="GoTopHopistalsBySpecialist12()">Ung bướu</a></li>
                                 <li><a href="#" onclick="GoTopHopistalsBySpecialist13()">Y học cổ truyền</a></li>
@@ -332,7 +833,7 @@
                                 <li><a href="#" onclick="GoTopHopistalsBySpecialist7()">Phụ sản</a></li>
                                 <li><a href="#" onclick="GoTopHopistalsBySpecialist8()">Răng hàm mặt</a></li>
                                 <li><a href="#" onclick="GoTopHopistalsBySpecialist9()">Tai mũi họng</a></li>
-                                <li><a href="#" onclick="GoTopHopistalsBySpecialist10()">Tâm thần</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist10()">Thần kinh</a></li>
                                 <li><a href="#" onclick="GoTopHopistalsBySpecialist11()">Tim mạch</a></li>
                                 <li class="active"><a href="#" onclick="GoTopHopistalsBySpecialist12()">Ung bướu</a></li>
                                 <li><a href="#" onclick="GoTopHopistalsBySpecialist13()">Y học cổ truyền</a></li>
@@ -347,7 +848,7 @@
                                 <li><a href="#" onclick="GoTopHopistalsBySpecialist7()">Phụ sản</a></li>
                                 <li><a href="#" onclick="GoTopHopistalsBySpecialist8()">Răng hàm mặt</a></li>
                                 <li><a href="#" onclick="GoTopHopistalsBySpecialist9()">Tai mũi họng</a></li>
-                                <li><a href="#" onclick="GoTopHopistalsBySpecialist10()">Tâm thần</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist10()">Thần kinh</a></li>
                                 <li><a href="#" onclick="GoTopHopistalsBySpecialist11()">Tim mạch</a></li>
                                 <li><a href="#" onclick="GoTopHopistalsBySpecialist12()">Ung bướu</a></li>
                                 <li class="active"><a href="#" onclick="GoTopHopistalsBySpecialist13()">Y học cổ truyền</a></li>
@@ -362,7 +863,7 @@
                                 <li><a href="#" onclick="GoTopHopistalsBySpecialist7()">Phụ sản</a></li>
                                 <li><a href="#" onclick="GoTopHopistalsBySpecialist8()">Răng hàm mặt</a></li>
                                 <li><a href="#" onclick="GoTopHopistalsBySpecialist9()">Tai mũi họng</a></li>
-                                <li><a href="#" onclick="GoTopHopistalsBySpecialist10()">Tâm thần</a></li>
+                                <li><a href="#" onclick="GoTopHopistalsBySpecialist10()">Thần kinh</a></li>
                                 <li><a href="#" onclick="GoTopHopistalsBySpecialist11()">Tim mạch</a></li>
                                 <li><a href="#" onclick="GoTopHopistalsBySpecialist12()">Ung bướu</a></li>
                                 <li><a href="#" onclick="GoTopHopistalsBySpecialist13()">Y học cổ truyền</a></li>
@@ -456,8 +957,7 @@
                 </table>
                 break;
         }
-    }
-    
+    }    
 </div>
 
 <script src="~/Scripts/Customs/SearchScripts.js"></script>

@@ -92,6 +92,50 @@ namespace PresentationLayer.Controllers
             }
         }
 
+        private void DisplayForArea2(List<LocationDto> locations, string area1, string area2,
+            List<HomepageViewModel> items)
+        {
+            if (locations == null || items == null) return;
+
+            List<LocationDto> exists;
+            if (string.IsNullOrEmpty(area1))
+            {
+                exists = locations.Where(x => x.Area1 == "Hà Nội" && x.Area2 == "Cầu Giấy").ToList();
+            }
+            else
+            {
+                exists = locations.Where(x => x.Area1 == area1 && x.Area2 == area2).ToList();
+            }
+
+            LocationBlo.Sort(exists, SortOption.Rating, false);
+
+            int count = 0;
+            foreach (var location in exists)
+            {
+                HomepageViewModel hvm = new HomepageViewModel
+                {
+                    Id = location.Id,
+                    Name = location.Name,
+                    Rating = location.Rating,
+                    Area1 = location.Area1,
+                    Area2 = location.Area2
+                };
+
+                if (location.Specialists.Count > 0)
+                {
+                    hvm.Specialist = location.Specialists[0];
+                }
+
+                items.Add(hvm);
+                count++;
+
+                if (count == 15)
+                {
+                    break;
+                }
+            }
+        }
+
         private void DisplayForSpecialist(List<LocationDto> locations, string specialist,
             List<HomepageViewModel> items)
         {
@@ -135,7 +179,7 @@ namespace PresentationLayer.Controllers
             }
         }
 
-        public ActionResult Home(string tab, string tab2)
+        public ActionResult Home(string tab, string tab2, string tab3)
         {
             var model = new HomeViewModel() {Items = new List<HomepageViewModel>()};
             string path = AppDomain.CurrentDomain.BaseDirectory;
@@ -156,7 +200,10 @@ namespace PresentationLayer.Controllers
                     break;
                 case "area2":
                     model.TabValue = "area2";
-                    model.ListTitle = "Danh sách các bệnh viện nổi bật theo quận, huyện";                   
+                    model.ListTitle = "Danh sách các bệnh viện nổi bật theo quận, huyện";
+                    model.TabValueLvl2 = tab2;
+                    model.TabValueLvl3 = tab3;
+                    DisplayForArea2(locations, tab2, tab3, model.Items);
                     break;
                 case "specialist":
                     model.TabValue = "specialist";

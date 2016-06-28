@@ -49,7 +49,7 @@ namespace DataAccessLayer.XmlDatabaseContexts
         #region Attributes
 
         private string _assemblyPath;
-        private const string DbPath = "Database\\LocationDB.Xml";
+        private const string DbPath = "bin\\Database\\LocationDB.Xml";
         private readonly XmlDocument _doc;
         private readonly XmlElement _root;
 

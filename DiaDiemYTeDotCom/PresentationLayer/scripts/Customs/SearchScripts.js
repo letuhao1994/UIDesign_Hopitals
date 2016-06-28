@@ -64,6 +64,226 @@ function GoTopHopistalsByArea12() {
     });
 }
 
+function GoTopHopistalsByArea2_1_1() {
+    window.location.replace("/Home/Home?tab=area2&tab2=Hà Nội&tab3=Cầu Giấy");
+
+    ga('send', {
+        hitType: 'event',
+        eventCategory: 'Home',
+        eventAction: 'tab selected',
+        eventLabel: 'Top hopistals by area2 - Ha Noi - Cau Giay'
+    });
+}
+
+function GoTopHopistalsByArea2_2_1() {
+    window.location.replace("/Home/Home?tab=area2&tab2=Tp. Hồ Chí Minh&tab3=Quận 1");
+
+    ga('send', {
+        hitType: 'event',
+        eventCategory: 'Home',
+        eventAction: 'tab selected',
+        eventLabel: 'Top hopistals by area2 - Tp. Ho Chi Minh - Quan 1'
+    });
+}
+
+function GoTopHopistalsByArea2_2_2() {
+    window.location.replace("/Home/Home?tab=area2&tab2=Tp. Hồ Chí Minh&tab3=Quận 2");
+
+    ga('send', {
+        hitType: 'event',
+        eventCategory: 'Home',
+        eventAction: 'tab selected',
+        eventLabel: 'Top hopistals by area2 - Tp. Ho Chi Minh - Quan 2'
+    });
+}
+
+function GoTopHopistalsByArea2_2_3() {
+    window.location.replace("/Home/Home?tab=area2&tab2=Tp. Hồ Chí Minh&tab3=Quận 3");
+
+    ga('send', {
+        hitType: 'event',
+        eventCategory: 'Home',
+        eventAction: 'tab selected',
+        eventLabel: 'Top hopistals by area2 - Tp. Ho Chi Minh - Quan 3'
+    });
+}
+
+function GoTopHopistalsByArea2_2_4() {
+    window.location.replace("/Home/Home?tab=area2&tab2=Tp. Hồ Chí Minh&tab3=Quận 4");
+
+    ga('send', {
+        hitType: 'event',
+        eventCategory: 'Home',
+        eventAction: 'tab selected',
+        eventLabel: 'Top hopistals by area2 - Tp. Ho Chi Minh - Quan 4'
+    });
+}
+
+function GoTopHopistalsByArea2_2_5() {
+    window.location.replace("/Home/Home?tab=area2&tab2=Tp. Hồ Chí Minh&tab3=Quận 5");
+
+    ga('send', {
+        hitType: 'event',
+        eventCategory: 'Home',
+        eventAction: 'tab selected',
+        eventLabel: 'Top hopistals by area2 - Tp. Ho Chi Minh - Quan 5'
+    });
+}
+
+function GoTopHopistalsByArea2_2_6() {
+    window.location.replace("/Home/Home?tab=area2&tab2=Tp. Hồ Chí Minh&tab3=Quận 6");
+
+    ga('send', {
+        hitType: 'event',
+        eventCategory: 'Home',
+        eventAction: 'tab selected',
+        eventLabel: 'Top hopistals by area2 - Tp. Ho Chi Minh - Quan 6'
+    });
+}
+
+function GoTopHopistalsByArea2_2_7() {
+    window.location.replace("/Home/Home?tab=area2&tab2=Tp. Hồ Chí Minh&tab3=Quận 7");
+
+    ga('send', {
+        hitType: 'event',
+        eventCategory: 'Home',
+        eventAction: 'tab selected',
+        eventLabel: 'Top hopistals by area2 - Tp. Ho Chi Minh - Quan 7'
+    });
+}
+
+function GoTopHopistalsByArea2_2_8() {
+    window.location.replace("/Home/Home?tab=area2&tab2=Tp. Hồ Chí Minh&tab3=Quận 8");
+
+    ga('send', {
+        hitType: 'event',
+        eventCategory: 'Home',
+        eventAction: 'tab selected',
+        eventLabel: 'Top hopistals by area2 - Tp. Ho Chi Minh - Quan 8'
+    });
+}
+
+function GoTopHopistalsByArea2_2_9() {
+    window.location.replace("/Home/Home?tab=area2&tab2=Tp. Hồ Chí Minh&tab3=Quận 9");
+
+    ga('send', {
+        hitType: 'event',
+        eventCategory: 'Home',
+        eventAction: 'tab selected',
+        eventLabel: 'Top hopistals by area2 - Tp. Ho Chi Minh - Quan 9'
+    });
+}
+
+function GoTopHopistalsByArea2_2_10() {
+    window.location.replace("/Home/Home?tab=area2&tab2=Tp. Hồ Chí Minh&tab3=Quận 10");
+
+    ga('send', {
+        hitType: 'event',
+        eventCategory: 'Home',
+        eventAction: 'tab selected',
+        eventLabel: 'Top hopistals by area2 - Tp. Ho Chi Minh - Quan 10'
+    });
+}
+
+function GoTopHopistalsByArea2_2_11() {
+    window.location.replace("/Home/Home?tab=area2&tab2=Tp. Hồ Chí Minh&tab3=Quận 11");
+
+    ga('send', {
+        hitType: 'event',
+        eventCategory: 'Home',
+        eventAction: 'tab selected',
+        eventLabel: 'Top hopistals by area2 - Tp. Ho Chi Minh - Quan 11'
+    });
+}
+
+function GoTopHopistalsByArea2_2_12() {
+    window.location.replace("/Home/Home?tab=area2&tab2=Tp. Hồ Chí Minh&tab3=Quận 12");
+
+    ga('send', {
+        hitType: 'event',
+        eventCategory: 'Home',
+        eventAction: 'tab selected',
+        eventLabel: 'Top hopistals by area2 - Tp. Ho Chi Minh - Quan 12'
+    });
+}
+
+function GoTopHopistalsByArea2_2_13() {
+    window.location.replace("/Home/Home?tab=area2&tab2=Tp. Hồ Chí Minh&tab3=Bình Thạnh");
+
+    ga('send', {
+        hitType: 'event',
+        eventCategory: 'Home',
+        eventAction: 'tab selected',
+        eventLabel: 'Top hopistals by area2 - Tp. Ho Chi Minh - Binh Thanh'
+    });
+}
+
+function GoTopHopistalsByArea2_2_14() {
+    window.location.replace("/Home/Home?tab=area2&tab2=Tp. Hồ Chí Minh&tab3=Gò Vấp");
+
+    ga('send', {
+        hitType: 'event',
+        eventCategory: 'Home',
+        eventAction: 'tab selected',
+        eventLabel: 'Top hopistals by area2 - Tp. Ho Chi Minh - Go Vap'
+    });
+}
+
+function GoTopHopistalsByArea2_2_15() {
+    window.location.replace("/Home/Home?tab=area2&tab2=Tp. Hồ Chí Minh&tab3=Tân Bình");
+
+    ga('send', {
+        hitType: 'event',
+        eventCategory: 'Home',
+        eventAction: 'tab selected',
+        eventLabel: 'Top hopistals by area2 - Tp. Ho Chi Minh - Tan Binh'
+    });
+}
+
+function GoTopHopistalsByArea2_2_16() {
+    window.location.replace("/Home/Home?tab=area2&tab2=Tp. Hồ Chí Minh&tab3=Tân Phú");
+
+    ga('send', {
+        hitType: 'event',
+        eventCategory: 'Home',
+        eventAction: 'tab selected',
+        eventLabel: 'Top hopistals by area2 - Tp. Ho Chi Minh - Tan Phu'
+    });
+}
+
+function GoTopHopistalsByArea2_2_17() {
+    window.location.replace("/Home/Home?tab=area2&tab2=Tp. Hồ Chí Minh&tab3=Thủ Đức");
+
+    ga('send', {
+        hitType: 'event',
+        eventCategory: 'Home',
+        eventAction: 'tab selected',
+        eventLabel: 'Top hopistals by area2 - Tp. Ho Chi Minh - Thu Duc'
+    });
+}
+
+function GoTopHopistalsByArea2_2_18() {
+    window.location.replace("/Home/Home?tab=area2&tab2=Tp. Hồ Chí Minh&tab3=Củ Chi");
+
+    ga('send', {
+        hitType: 'event',
+        eventCategory: 'Home',
+        eventAction: 'tab selected',
+        eventLabel: 'Top hopistals by area2 - Tp. Ho Chi Minh - Cu Chi'
+    });
+}
+
+function GoTopHopistalsByArea2_2_19() {
+    window.location.replace("/Home/Home?tab=area2&tab2=Tp. Hồ Chí Minh&tab3=Hóc Môn");
+
+    ga('send', {
+        hitType: 'event',
+        eventCategory: 'Home',
+        eventAction: 'tab selected',
+        eventLabel: 'Top hopistals by area2 - Tp. Ho Chi Minh - Hoc Mon'
+    });
+}
+
 function GoTopHopistalsBySpecialist1() {
     window.location.replace("/Home/Home?tab=specialist&tab2=Chấn thương chỉnh hình");
 
@@ -164,13 +384,13 @@ function GoTopHopistalsBySpecialist9() {
 }
 
 function GoTopHopistalsBySpecialist10() {
-    window.location.replace("/Home/Home?tab=specialist&tab2=Tâm thần");
+    window.location.replace("/Home/Home?tab=specialist&tab2=Thần kinh");
 
     ga('send', {
         hitType: 'event',
         eventCategory: 'Home',
         eventAction: 'tab selected',
-        eventLabel: 'Top hopistals by specialists - Tâm thần'
+        eventLabel: 'Top hopistals by specialists - Thần Kinh'
     });
 }
 

@@ -8,6 +8,7 @@ namespace PresentationLayer.Models
         public string TabValue { get; set; }
         public string ListTitle { get; set; }
         public string TabValueLvl2 { get; set; }
+        public string TabValueLvl3 { get; set; }
 
         [Display(Name = "Tên")]
         public string Name { get; set; }
